@@ -1,46 +1,26 @@
 @extends('layout.admin')
-@section('title','Users page')
+
+@section('title','Clients Page')
+
 @section('content')
-    <h1>Users list</h1>
-
-{{--    <form action="{{route('adm.users.search')}}" method="GET">--}}
-{{--        <div class="input-group mb-3">--}}
-{{--            <div class="input-group-prepend">--}}
-{{--                <span class="input-group-text" id="basic-addon1">@</span>--}}
-{{--            </div>--}}
-{{--            <input type="text" name="search" class="form-control" placeholder="{{ __('messages.Search" aria-label="Username" aria-describedby="basic-addon1">--}}
-{{--            <button class="'btn btn-success" type="submit">{{ __('messages.Search</button>--}}
-
-{{--        </div>--}}
-{{--    </form>--}}
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">email</th>
-            <th scope="col">Role</th>
-            <th scope="col">details</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        @for($i=0;$i<count($users);$i++)
-            <tr class="@if($users[$i]->id == Auth::user()->id) text-primary @endif">
-                <th scope="row">{{$i+1}}</th>
-                <td>{{$users[$i]->name}}</td>
-                <td>{{$users[$i]->email}}</td>
-                <td>@foreach($users[$i]->roles as $role)
-                    {{$role->name}}
-                    @endforeach</td>
-                <td>
-                    <a href="{{route('admin.users.edit',$users[$i]->id)}}" class="btn btn-success">details</a>
-                </td>
-                <td>
-
-                </td>
-            </tr>@endfor
-        </tbody>
-    </table>
-
+    <div class="container-fluid mt-100">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Clients Page</h5>
+                    </div>
+                    <div class="card-body cart">
+                        <div class="col-sm-12 empty-cart-cls text-center">
+                            @if($clients)
+                                @include('admin.clients.table')
+                            @else
+                                <h3><strong>Page is Empty</strong></h3>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

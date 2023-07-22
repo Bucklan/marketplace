@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Client\Contracts;
+namespace App\Services\Admin\Contracts;
 
 interface GetAllCategories
 {

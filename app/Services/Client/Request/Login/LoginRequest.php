@@ -2,7 +2,20 @@
 
 namespace App\Services\Client\Request\Login;
 
-class LoginRequest
-{
+use Illuminate\Foundation\Http\FormRequest;
 
+class LoginRequest extends FormRequest
+{
+    public function boot()
+    {
+        return auth()->guest();
+    }
+
+    public function rules()
+    {
+        return [
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|string|max:255',
+        ];
+    }
 }

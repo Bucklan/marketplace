@@ -1,31 +1,20 @@
 <?php
 
-use App\Http\Controllers\Api as Api;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+Route::prefix('client')->group(function () {
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+    include('common/products.php');
+    include('common/categories.php');
 
-Route::prefix('products')->group(function (){
-    Route::get('',[Api\ProductController::class,'index']);
+    Route::middleware('guest')->group(function () {
+        include('guest/auth.php');
+    });
 
+    Route::prefix('user')->middleware('auth:sanctum')->group(function () {
 
-        //o  зарегистрироваться и авторизоваться    Login Register
-        //o  просмотреть список категории  ListCategories
-        //o  просмотреть список товаров по категориям GetProductsByCategory
-        //o  просмотреть список заказов со статусом GetOrdersByStatus
-        //o  добавить товар в корзину и оформить заказ AddProductsToCart || Order
+        include('user/carts.php');
+        include('user/orders.php');
+
+    });
 });

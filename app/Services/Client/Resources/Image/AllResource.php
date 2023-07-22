@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Client\Resource\Image;
+namespace App\Services\Client\Resources\Image;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\File;

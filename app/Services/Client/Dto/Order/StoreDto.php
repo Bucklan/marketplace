@@ -2,7 +2,10 @@
 
 namespace App\Services\Client\Dto\Order;
 
-class StoreDto
+use Spatie\DataTransferObject\DataTransferObject;
+
+class StoreDto extends DataTransferObject
 {
+    public array $products;
 
 }

@@ -1,46 +1,29 @@
 @extends('layout.admin')
-@section('title','Users page')
+
+@section('title','Managers Page')
+
 @section('content')
-    <h1>
-        Clients
-        list</h1>
-
-    <table
-        class="table">
-        <thead>
-        <tr>
-            <th scope="col">
-                #
-            </th>
-            <th scope="col">
-                Name
-            </th>
-            <th scope="col">
-                email
-            </th>
-            <th scope="col">
-                Action
-            </th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($clients as $client)
-            <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$client->name}}</td>
-                <td>{{$client->email}}</td>
-                <td>
-                    {{$client->id}}
-                    @if($client->login_blocked_at == null)
-                        @include('admin.clients.button-block')
-                    @else
-                        @include('admin.clients.button-unblock')
-                    @endif
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-
+    <div class="container-fluid mt-100">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Managers Page</h5>
+                    </div>
+                    <div class="card-body cart">
+                        <a href="{{route('admin.managers.create')}}" class="btn btn-primary">Create Manager</a>
+                        <br>
+                        <br>
+                        <div class="col-sm-12 empty-cart-cls text-center">
+                            @if($managers)
+                                @include('admin.managers.table')
+                            @else
+                                <h3><strong>Page is Empty</strong></h3>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

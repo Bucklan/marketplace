@@ -1,43 +1,29 @@
-@extends('layouts.adm')
+<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".create_category">Create
+    Category
+</button>
 
-@section('title','Create category page')
-
-@section('content')
-<div class="row justify-content-center">
-    <div class="col-md-10">
-        <form action="{{route('adm.categories.store')}}" method="post"  enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="nameInput">{{ __('roles.name') }}</label>
-                <input type="text" class="form-control @error('name_kz') is-invalid @enderror" id="nameInput" name="name_kz" placeholder="Санаттарды еңгізіңіз">
-                @error('name_kz')
-                    <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+<div class="modal fade create_category" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 ">
+                    <div class="col-md-12">
+                        <form action="{{route('admin.categories.store')}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name Category</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="Insert Name Category">
+                                @error('name')
+                                <div class="alert alert-danger mt-2">{{$message}}</div>
+                                @enderror
+                                <button class="btn btn-success mt-4">Create</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            <div class="form-group">
-                <label for="nameInput">{{ __('roles.name') }}</label>
-                <input type="text" class="form-control @error('name_en') is-invalid @enderror" id="nameInput" name="name_en" placeholder="Enter name">
-                @error('name_en')
-                    <div class="alert alert-danger">{{$message}}</div>
-                @enderror
             </div>
-            <div class="form-group">
-                <label for="nameInput">{{ __('roles.name') }}</label>
-                <input type="text" class="form-control @error('name_ru') is-invalid @enderror" id="nameInput" name="name_ru"
-                       placeholder="Введите названия категория">
-                @error('name_ru')
-                <div class="alert alert-danger">{{$message}}</div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="imgInput" class="form-label">{{ __('edits.photo') }}</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" id="imgInput" name="image">
-                @error('image')
-                <div style="color: red" class="alert col-md-4 col-md-offset-4">{{$message}}</div>
-                @enderror
-            </div>
-            <div class="form-group mt-3">
-                <button type="submit" style="float:right;" class="btn btn-success">{{ __('category.create category') }}</button>
-            </div>
-        </form>
-@endsection
+        </div>
+    </div>
+</div>

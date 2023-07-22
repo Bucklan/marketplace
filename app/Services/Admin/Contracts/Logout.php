@@ -2,7 +2,7 @@
 
 namespace App\Services\Admin\Contracts;
 
-class Logout
+interface Logout
 {
-
+public function execute();
 }

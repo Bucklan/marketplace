@@ -19,16 +19,16 @@ class UserFactory extends Factory
         ];
     }
 
-    public function developer(): Factory
+    public function manager(): Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'name' => 'Разработчик',
-                'email' => 'developer@kosmos.kz',
+                'name' => 'Manager',
+                'email' => 'manager@gmail.com',
                 'password' => 'M5E76*^EHr3vb%Xq&KAatvKwT7Jmrsvs',
             ];
         })->afterCreating(function (User $user){
-            $user->assignRole(Enums\User\Role::DEVELOPER);
+            $user->assignRole(Enums\User\Role::MANAGER);
         });
     }
 
@@ -36,12 +36,12 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'name' => 'Супер админ',
-                'email' => 'admin@kosmos.kz',
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
                 'password' => 'M5E76*^EHr3vb%Xq&KAatvKwT7Jmrsvs',
             ];
         })->afterCreating(function (User $user){
-            $user->assignRole(Enums\User\Role::SUPER_ADMIN);
+            $user->assignRole(Enums\User\Role::ADMIN);
         });
     }
 }

@@ -49,7 +49,7 @@
                     Close
                 </button>
                 <form
-                    action="{{route('admin.clients.unblock',$client['id'])}}"
+                    action="{{route('admin.managers.unblock',$manager['id'])}}"
                     method="post">
                     @method('PUT')
                     @csrf

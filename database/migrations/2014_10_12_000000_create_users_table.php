@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->dateTime('login_blocked_at')->nullable(); // login block uaqyt
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

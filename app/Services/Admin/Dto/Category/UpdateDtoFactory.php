@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Admin\Dto\Product;
+namespace App\Services\Admin\Dto\Category;
 
-use App\Services\Admin\Requests\Product\UpdateRequest;
+use App\Services\Admin\Requests\Category\UpdateRequest;
 
 class UpdateDtoFactory
 {
@@ -16,10 +16,6 @@ class UpdateDtoFactory
     {
         return new UpdateDto([
             'name' => $data['name'],
-            'description' => $data['description'],
-            'price' => $data['price'],
-            'quantity' => $data['quantity'],
-            'category_id' => $data['category_id'],
 //            'images' => $data['images'],
         ]);
     }

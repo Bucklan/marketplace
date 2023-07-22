@@ -14,6 +14,7 @@ class CreatePermissions extends Migration
 
         Permission::create(['name' => Enums\User\Permission::ORDERS]);
         Permission::create(['name' => Enums\User\Permission::MANAGERS]);
+        Permission::create(['name' => Enums\User\Permission::CLIENTS]);
         Permission::create(['name' => Enums\User\Permission::CATEGORIES]);
         Permission::create(['name' => Enums\User\Permission::PRODUCTS]);
     }
@@ -25,6 +26,7 @@ class CreatePermissions extends Migration
 
         Permission::query()->where(['name' => Enums\User\Permission::ORDERS])->delete();
         Permission::query()->where(['name' => Enums\User\Permission::MANAGERS])->delete();
+        Permission::query()->where(['name' => Enums\User\Permission::CLIENTS])->delete();
         Permission::query()->where(['name' => Enums\User\Permission::CATEGORIES])->delete();
         Permission::query()->where(['name' => Enums\User\Permission::PRODUCTS])->delete();
     }

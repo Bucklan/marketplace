@@ -2,19 +2,19 @@
 
 namespace App\Services\Admin\Dto\Product;
 
-use App\Services\Admin\Requests\Product\StoreRequest;
+use App\Services\Admin\Requests\Product\UpdateRequest;
 
-class CreateDtoFactory
+class UpdateDtoFactory
 {
-    public static function fromRequest(StoreRequest $request): CreateDto
+    public static function fromRequest(UpdateRequest $request): UpdateDto
     {
         return self::fromArray($request->validated());
 
     }
 
-    public static function fromArray(array $data): CreateDto
+    public static function fromArray(array $data): UpdateDto
     {
-        return new CreateDto([
+        return new UpdateDto([
             'name' => $data['name'],
             'description' => $data['description'],
             'price' => $data['price'],

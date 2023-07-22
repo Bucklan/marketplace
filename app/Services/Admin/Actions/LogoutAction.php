@@ -2,7 +2,17 @@
 
 namespace App\Services\Admin\Actions;
 
-class LogoutAction
-{
+use App\Models\User;
+use App\Services\Admin\Contracts\Logout;
+use Illuminate\Support\Facades\Auth;
 
+class LogoutAction implements Logout
+{
+    public function execute()
+    {
+        /** @var User $user */
+        $user = Auth::user();
+
+        $user->tokens()->delete();
+    }
 }

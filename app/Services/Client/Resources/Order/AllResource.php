@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\Client\Resource\Order;
+namespace App\Services\Client\Resources\Order;
 
 use App\Models\Order;
-use App\Services\Client\Resource\Product\AllByCategoryResource;
+use App\Services\Client\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Admin\Dto\Product;
+namespace App\Services\Admin\Dto\Category;
 
-use App\Services\Admin\Requests\Product\StoreRequest;
+use App\Services\Admin\Requests\Category\StoreRequest;
 
 class CreateDtoFactory
 {
@@ -16,10 +16,6 @@ class CreateDtoFactory
     {
         return new CreateDto([
             'name' => $data['name'],
-            'description' => $data['description'],
-            'price' => $data['price'],
-            'quantity' => $data['quantity'],
-            'category_id' => $data['category_id'],
 //            'images' => $data['images'],
         ]);
     }

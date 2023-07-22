@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Client\Resource\Cart;
+namespace App\Services\Client\Resources\Cart;
 
 use App\Models\Cart;
 use Illuminate\Http\Request;
@@ -10,7 +10,6 @@ class AllResource extends JsonResource
 {
     public function toArray(Request $request)
     {
-dd($request);
         /** @var Cart $this */
 
 

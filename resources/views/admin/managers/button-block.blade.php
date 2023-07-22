@@ -17,9 +17,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                {{$client->id}}
                 <form
-                    action="{{route('admin.clients.block',$client['id'])}}" method="post">
+                    action="{{route('admin.managers.block',$manager['id'])}}" method="post">
                     @method('PUT')
                     @csrf
                     <button class="btn btn-danger">Yes</button>

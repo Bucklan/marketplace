@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-interface CategoryRepositoryInterface
+interface CategoryRepositoryInterface extends EloquentRepositoryInterface
 {
-
+public function getCategoryWhereName(string $name);
 }

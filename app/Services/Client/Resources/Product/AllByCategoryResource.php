@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services\Client\Resource\Product;
+namespace App\Services\Client\Resources\Product;
 
 use App\Models\Product;
-use App\Services\Client\Resource\Image\AllResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Enums as Enums;
 

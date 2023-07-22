@@ -7,8 +7,8 @@ use BenSampo\Enum\Enum;
 
 final class Role extends Enum implements LocalizedEnum
 {
-    const SUPER_ADMIN = 'super_admin';
+    const ADMIN = 'admin';
     const DEVELOPER = 'developer';
     const MANAGER = 'manager';
-    const COURIER = 'courier';
+    const CLIENT = 'client';
 }

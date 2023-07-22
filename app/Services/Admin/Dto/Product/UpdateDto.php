@@ -4,7 +4,7 @@ namespace App\Services\Admin\Dto\Product;
 
 use Spatie\DataTransferObject\DataTransferObject;
 
-class CreateDto extends DataTransferObject
+class UpdateDto extends DataTransferObject
 {
     public string $name;
     public string $description;

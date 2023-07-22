@@ -6,7 +6,7 @@ use App\Enums as Enums;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     public function boot()
     {
@@ -17,7 +17,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:users,email,'.$this->manager->id,
             'password' => 'required|max:255|min:8|confirmed',
             'permissions' => 'required|array',
             'permission.*' => [

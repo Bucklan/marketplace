@@ -4,17 +4,14 @@ namespace App\Services\Admin\Actions\Order;
 
 use App\Enums\Order\Status;
 use App\Models\Order;
-use App\Services\Admin\Contracts\DeclineOrders;
+use App\Services\Admin\Contracts\CancelOrders;
 
-class DeclineAction implements DeclineOrders
+class CancelAction implements CancelOrders
 {
 public function execute(Order $order)
 {
-    if ($order->status == Status::CONFIRMED) {
-        throw new \Exception('This order has already been confirmed');
-    }
 
-    Order::update([
+    $order->update([
         'status' => Status::CANCELED,
         'confirmed_at' => now(),
     ]);

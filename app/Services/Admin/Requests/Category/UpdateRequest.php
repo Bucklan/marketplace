@@ -4,7 +4,7 @@ namespace App\Services\Admin\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     public function boot()
     {

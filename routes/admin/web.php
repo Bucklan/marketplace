@@ -2,17 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::prefix('admin')->as('admin.')->group(function () {
+
+    Route::prefix('user')->middleware('auth:sanctum')->group(function () {
+        Route::middleware('role:admin|manager')->group(function () {
+            require('user/orders.php');
+            require('user/clients.php');
+            Route::middleware('role:admin')->group(function () {
+                require('user/managers.php');
+            });
+        });
+        require('user/logout.php');
+        require('user/products.php');
+        require('user/categories.php');
+    });
+});
+
+Route::middleware('guest')->group(function () {
+    require('guest/login.php');
 });
