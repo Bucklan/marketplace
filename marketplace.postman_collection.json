@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "2e9b8e87-2d77-444f-aa69-f9dc0b28847c",
+		"name": "marketplace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27789805"
+	},
+	"item": [
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"name\": \"up\",\r\n\"email\": \"up@gmail.com\",\r\n\"password\": \"123123123\",\r\n\"password_confirmation\": \"123123123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{second_link}}/api/client/auth/register",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"up@gmail.com\",\r\n    \"password\": \"123123123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{second_link}}/api/client/auth/login",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "ProductsByCategory",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{second_link}}/api/client/categories/1/products",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"categories",
+										"1",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{second_link}}/api/client/categories",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "OrdersByClients",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{second_link}}/api/client/user/orders",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"user",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OrdersByStatus",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "status",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{second_link}}/api/client/user/orders/{order}/by-status?status=3",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"user",
+										"orders",
+										"{order}",
+										"by-status"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"products\": [\r\n    {\r\n    \"product_id\": 3,\r\n    \"quantity\" :4\r\n}\r\n]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{second_link}}/api/client/user/orders",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"user",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "4|PcXBh9LwmjZC31wRBFSXuvC6OBhFNPvST91YmDCV",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Cart",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{second_link}}/api/client/user/carts",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"user",
+										"carts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{second_link}}/api/client/user/carts/products/2?quantity=2",
+									"host": [
+										"{{second_link}}"
+									],
+									"path": [
+										"api",
+										"client",
+										"user",
+										"carts",
+										"products",
+										"2"
+									],
+									"query": [
+										{
+											"key": "quantity",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "4|PcXBh9LwmjZC31wRBFSXuvC6OBhFNPvST91YmDCV",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
