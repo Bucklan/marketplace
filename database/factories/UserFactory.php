@@ -2,37 +2,46 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Enums as Enums;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
 class UserFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'password' => '$2a$12$BN8Y92vZbAWvzzxnyXdkjeOHt3BNPMTnjAtNStUI6zOjeeDvqqt4O',
             'remember_token' => Str::random(10),
         ];
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
+    public function developer(): Factory
     {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
+        return $this->state(function (array $attributes) {
+            return [
+                'name' => 'Разработчик',
+                'email' => 'developer@kosmos.kz',
+                'password' => 'M5E76*^EHr3vb%Xq&KAatvKwT7Jmrsvs',
+            ];
+        })->afterCreating(function (User $user){
+            $user->assignRole(Enums\User\Role::DEVELOPER);
+        });
+    }
+
+    public function admin(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'name' => 'Супер админ',
+                'email' => 'admin@kosmos.kz',
+                'password' => 'M5E76*^EHr3vb%Xq&KAatvKwT7Jmrsvs',
+            ];
+        })->afterCreating(function (User $user){
+            $user->assignRole(Enums\User\Role::SUPER_ADMIN);
+        });
     }
 }
