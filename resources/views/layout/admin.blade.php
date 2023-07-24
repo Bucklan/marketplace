@@ -36,7 +36,9 @@
                     <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="{{route('admin.clients.index')}}">Clients</a>
+                            @can('forAdmin',\App\Models\User::class)
                             <a class="collapse-item" href="{{route('admin.managers.index')}}">Managers</a>
+                            @endcan
                         </div>
                     </div>
                 </li>

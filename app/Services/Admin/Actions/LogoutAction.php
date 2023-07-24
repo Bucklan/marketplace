@@ -11,8 +11,6 @@ class LogoutAction implements Logout
     public function execute()
     {
         /** @var User $user */
-        $user = Auth::user();
-
-        $user->tokens()->delete();
+        Auth::logout();
     }
 }

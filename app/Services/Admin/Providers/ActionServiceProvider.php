@@ -9,7 +9,6 @@ class ActionServiceProvider extends ServiceProvider
 {
     public array $singletons = [
         Admin\Contracts\Login::class => Admin\Actions\Login\LoginAction::class,
-        Admin\Contracts\Logout::class => Admin\Actions\LogoutAction::class,
         Admin\Contracts\GetAllProduct::class => Admin\Actions\Product\GetAllAction::class,
         Admin\Contracts\CreateProduct::class => Admin\Actions\Product\CreateAction::class,
         Admin\Contracts\GetAllCategories::class => Admin\Actions\Category\GetAllAction::class,

@@ -10,12 +10,18 @@ class ManagerSeeder extends Seeder
 {
     public function run(): void
     {
-        $user = User::factory()->manager()->create();
+        $user = User::create([
+            'name' => 'Manager',
+            'email' => 'manager@gmail.com',
+            'password' => 'manager123',
+        ]);
+        $user->assignRole(Enums\User\Role::MANAGER);
 
         $user->givePermissionTo([
             Enums\User\Permission::ORDERS,
             Enums\User\Permission::CATEGORIES,
             Enums\User\Permission::PRODUCTS,
+            Enums\User\Permission::CLIENTS,
         ]);
     }
 }

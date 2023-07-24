@@ -19,29 +19,29 @@ class UserFactory extends Factory
         ];
     }
 
-    public function manager(): Factory
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'name' => 'Manager',
-                'email' => 'manager@gmail.com',
-                'password' => 'M5E76*^EHr3vb%Xq&KAatvKwT7Jmrsvs',
-            ];
-        })->afterCreating(function (User $user){
-            $user->assignRole(Enums\User\Role::MANAGER);
-        });
-    }
+//    public function manager(): Factory
+//    {
+//        return $this->state(function (array $attributes) {
+//            return [
+//                'name' => 'Manager',
+//                'email' => 'manager@gmail.com',
+//                'password' => 'manager123',
+//            ];
+//        })->afterCreating(function (User $user){
+//            $user->assignRole(Enums\User\Role::MANAGER);
+//        });
+//    }
 
-    public function admin(): Factory
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'name' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'password' => 'M5E76*^EHr3vb%Xq&KAatvKwT7Jmrsvs',
-            ];
-        })->afterCreating(function (User $user){
-            $user->assignRole(Enums\User\Role::ADMIN);
-        });
-    }
+//    public function admin(): Factory
+//    {
+//        return $this->state(function (array $attributes) {
+//            return [
+//                'name' => 'Admin',
+//                'email' => 'admin@gmail.com',
+//                'password' => 'admin123',
+//            ];
+//        })->afterCreating(function (User $user){
+//            $user->assignRole(Enums\User\Role::ADMIN);
+//        });
+//    }
 }

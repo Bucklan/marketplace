@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
 
-    Route::prefix('user')->middleware('auth:sanctum')->group(function () {
+    Route::prefix('user')->middleware('auth')->group(function () {
         Route::middleware('role:admin|manager')->group(function () {
             require('user/orders.php');
             require('user/clients.php');

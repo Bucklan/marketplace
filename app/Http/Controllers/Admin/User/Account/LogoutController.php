@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin\User\Account;
 
 use App\Http\Controllers\Controller;
-use App\Services\Admin\Contracts\Logout;
+use Illuminate\Http\Request;
 
 class LogoutController extends Controller
 {
-    public function logout()
+    public function logout(Request $request)
     {
-        app(Logout::class)->execute();
+       auth()->logout();
 
-        return redirect()->route('login.form');}
+        return redirect()->route('login.form');
+    }
 }
