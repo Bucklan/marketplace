@@ -33,7 +33,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * // * @property-read int|null $order_products_count
  *
  * @method static Builder|Product filterBy($filters)
- * @method static Builder|Product hasNestedUsingJoins($relations, $operator = '>=', $count = 1, $boolean = 'and', ?Closure $callback = null)
  * @method static Builder|Product joinNestedRelationship(string $relationships, $callback = null, $joinType = 'join', $useAlias = false, bool $disableExtraConditions = false)
  * @method static Builder|Product joinRelation($relationName, $callback = null, $joinType = 'join', $useAlias = false, bool $disableExtraConditions = false)
  * @method static Builder|Product joinRelationship($relationName, $callback = null, $joinType = 'join', $useAlias = false, bool $disableExtraConditions = false)
