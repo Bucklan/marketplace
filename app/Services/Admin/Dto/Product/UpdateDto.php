@@ -11,5 +11,5 @@ class UpdateDto extends DataTransferObject
     public int $price;
     public int $quantity;
     public int $category_id;
-//    public array $images;
+    public array $images;
 }

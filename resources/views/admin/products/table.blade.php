@@ -9,8 +9,9 @@
                     <!-- Image -->
                     <div class="bg-image hover-overlay hover-zoom ripple rounded"
                          data-mdb-ripple-color="light">
-                        <img src="{{asset($product->image)}}"
-                             class="w-100" alt="..."/>
+                        @if($media = $product->getFirstMedia('products'))
+                            <img src="{{$media->getUrl()}}" class="w-100" alt="..."/>
+                        @endif
                         <a href="#!">
                             <div class="mask"
                                  style="background-color: rgba(251, 251, 251, 0.2)"></div>

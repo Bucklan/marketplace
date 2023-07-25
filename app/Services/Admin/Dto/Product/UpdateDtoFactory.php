@@ -20,7 +20,7 @@ class UpdateDtoFactory
             'price' => $data['price'],
             'quantity' => $data['quantity'],
             'category_id' => $data['category_id'],
-//            'images' => $data['images'],
+            'images' => $data['images'],
         ]);
     }
 }

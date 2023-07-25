@@ -12,10 +12,10 @@
                     </div>
                     <div class="card-body cart">
                         <div class="col-sm-12 empty-cart-cls text-center">
-                            @if($clients)
+                            @if(empty($clients))
                                 @include('admin.clients.table')
                             @else
-                                <h3><strong>Page is Empty</strong></h3>
+                                <x-product-card-empty name="Clients items not exists"/>
                             @endif
                         </div>
                     </div>
