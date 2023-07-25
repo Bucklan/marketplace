@@ -12,7 +12,7 @@
                         @if($media = $product->getFirstMedia('products'))
                             <img src="{{$media->getUrl()}}" class="w-100" alt="..."/>
                         @endif
-                        <a href="#!">
+                        <a href="#">
                             <div class="mask"
                                  style="background-color: rgba(251, 251, 251, 0.2)"></div>
                         </a>

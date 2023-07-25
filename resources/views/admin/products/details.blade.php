@@ -82,7 +82,7 @@
         document.getElementById("showHide{{$product->id}}").onclick = function() {
         var theDiv = document.getElementById("morePhotos{{$product->id}}");
         var theOnlyPhoto = document.getElementById("onlyOnePhoto{{$product->id}}")
-        if(theDiv.style.display == 'none') {
+        if(theDiv.style.display === 'none') {
             theOnlyPhoto.style.display = 'none';
         theDiv.style.display = 'block';
         this.innerHTML = 'Hide';
