@@ -14,7 +14,6 @@ use Storage;
  *
  * @property int $id
  * @property string $name
- * @property int|null $type
  * @property string $mime
  * @property string $ext
  * @property int $size
@@ -37,7 +36,6 @@ use Storage;
  * @method static Builder|File whereMime($value)
  * @method static Builder|File whereName($value)
  * @method static Builder|File whereSize($value)
- * @method static Builder|File whereType($value)
  * @method static Builder|File whereUpdatedAt($value)
  * @method static Builder|File whereUrl($value)
  *

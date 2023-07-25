@@ -10,5 +10,6 @@ class DeleteAction implements DeleteCategory
     public function execute(Category $category)
     {
         $category->delete();
+        $category->clearMediaCollectionExcept('categories',[$category->id]);
     }
 }

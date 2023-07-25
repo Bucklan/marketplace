@@ -57,9 +57,9 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="image" class="form-label">Image Product</label>
-                                <input type="file" class="form-control-file" id="image" name="image">
-                                @error('image')
+                                <label for="images" class="form-label">Image Product</label>
+                                <input type="file" multiple="multiple" class="form-control-file" id="images" name="images[]">
+                                @error('images')
                                 <div class="alert alert-danger mt-2">{{$message}}</div>
                                 @enderror
                             </div>

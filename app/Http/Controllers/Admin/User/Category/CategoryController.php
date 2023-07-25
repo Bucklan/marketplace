@@ -8,7 +8,6 @@ use App\Services\Admin\Dto\Category\CreateDtoFactory;
 use App\Services\Admin\Dto\Category\UpdateDtoFactory;
 use App\Services\Admin\Requests\Category\StoreRequest;
 use App\Services\Admin\Requests\Category\UpdateRequest;
-use Illuminate\Http\Request;
 use App\Services\Admin\Contracts as Contracts;
 use Auth;
 
@@ -22,17 +21,19 @@ class CategoryController extends Controller
     public function index()
     {
         $this->authorize('viewAny', Auth::user());
-
         $categories = app(Contracts\GetAllCategories::class)->execute();
-
         return view($this->url . 'index', ['categories' => $categories]);
     }
 
+    public function edit(Category $category)
+    {
+
+        return view($this->url . 'edit', ['category' => $category]);
+}
 
     public function store(StoreRequest $request)
     {
         $this->authorize('viewAny', Auth::user());
-
         app(Contracts\CreateCategory::class)->execute(
             CreateDtoFactory::fromRequest($request));
 

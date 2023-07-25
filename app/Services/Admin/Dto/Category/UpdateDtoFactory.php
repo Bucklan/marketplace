@@ -16,7 +16,7 @@ class UpdateDtoFactory
     {
         return new UpdateDto([
             'name' => $data['name'],
-//            'images' => $data['images'],
+            'image' => $data['image'],
         ]);
     }
 }

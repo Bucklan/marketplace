@@ -19,5 +19,7 @@ class UpdateAction implements UpdateCategory
     private function updateCategory(Category $category, UpdateDto $dto)
     {
         $category->update($dto->only('name')->toArray());
+        $category->clearMediaCollectionExcept('categories',[$category->id]);
+        $category->addMedia($dto->image)->toMediaCollection('categories');
     }
 }

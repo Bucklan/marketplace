@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
-
+use Spatie\MediaLibrary\InteractsWithMedia;
 /**
  * App\Models\Product
  *
@@ -78,11 +78,11 @@ use Illuminate\Support\Carbon;
  *
  * @mixin Eloquent
  */
-class Product extends Model
+class Product extends Model implements \Spatie\MediaLibrary\HasMedia
 {
     use HasFactory,
         HasScopes,
-        HasMedia;
+        InteractsWithMedia;
 
     protected $guarded = [
         'created_at', 'updated_at'

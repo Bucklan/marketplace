@@ -1,11 +1,6 @@
-<button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target=".edit_category">
-    Edit
-</button>
-
-<div class="modal fade edit_category" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+@extends('layout.admin')
+@section('title','Edit Page')
+@section('content')
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 ">
                     <div class="col-md-12">
@@ -19,12 +14,20 @@
                                 @error('name')
                                 <div class="alert alert-danger mt-2">{{$message}}</div>
                                 @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image Category</label>
+                                <input type="file"  class="form-control-file" id="image" name="image">
+                                @error('image')
+                                <div class="alert alert-danger mt-2">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <button class="btn btn-success mt-3">Edit</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+@endsection

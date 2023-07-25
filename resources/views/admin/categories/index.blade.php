@@ -1,29 +1,16 @@
 @extends('layout.admin')
 @section('title','Categories Page')
 @section('content')
-    @include('admin.categories.create')
-    <table class="table" width="100%">
-        <thead>
-        <tr>
-            <th scope="col" class="w-25">#</th>
-            <th scope="col" class="w-50">Categories</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($categories as $category)
-            <tr>
-                <th>{{$loop->iteration}}</th>
-                <td>{{$category->name }}</td>
-                <td>
-                    @include('admin.categories.edit')
-                </td>
-                <td>
-                    @include('admin.categories.delete')
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+    <div class="container py-2">
+        <div class="row d-flex">
+            <div class="col-md-12">
+                @include('admin.categories.create')
+                @if($categories)
+                    @include('admin.categories.table')
+                @else
+                    <x-product-card-empty name="Categories items not exists"/>
+                @endif
+            </div>
+        </div>
+    </div>
 @endsection

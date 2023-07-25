@@ -22,7 +22,6 @@ class RegisterAction implements Register
         $user = $this->createUser($dto);
         $user->assignRole(Role::CLIENT);
         return [
-
             'email' => $user->email,
             'token' => $user->createToken('auth_token')->plainTextToken,
         ];

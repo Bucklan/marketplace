@@ -2,6 +2,7 @@
 
 namespace App\Services\Admin\Dto\Product;
 
+use Illuminate\Http\UploadedFile;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class CreateDto extends DataTransferObject
@@ -11,5 +12,5 @@ class CreateDto extends DataTransferObject
     public int $price;
     public int $quantity;
     public int $category_id;
-//    public array $images;
+    public array $images;
 }

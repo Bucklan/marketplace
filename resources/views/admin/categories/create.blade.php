@@ -18,8 +18,15 @@
                                 @error('name')
                                 <div class="alert alert-danger mt-2">{{$message}}</div>
                                 @enderror
-                                <button class="btn btn-success mt-4">Create</button>
                             </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Image Category</label>
+                                    <input type="file"  class="form-control-file" id="image" name="image">
+                                    @error('image')
+                                    <div class="alert alert-danger mt-2">{{$message}}</div>
+                                    @enderror
+                                </div>
+                            <button class="btn btn-success mt-4">Create</button>
                         </form>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ class CreateDtoFactory
     {
         return new CreateDto([
             'name' => $data['name'],
-//            'images' => $data['images'],
+            'image' => $data['image'],
         ]);
     }
 }
