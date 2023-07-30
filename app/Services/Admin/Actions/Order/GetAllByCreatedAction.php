@@ -2,16 +2,18 @@
 
 namespace App\Services\Admin\Actions\Order;
 
+use App\Enums\Order\Status;
 use App\Services\Admin\Contracts\GetAllOrders;
 use App\Tasks as Tasks;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 
-class GetAllAction implements GetAllOrders
+class GetAllByCreatedAction implements GetAllOrders
 {
     public function execute()
     {
         $orders = app(Tasks\Order\GetAllOrdersTask::class)->run(
+            [Status::CREATED],
             ['orders.id', 'orders.user_id', 'orders.amount', 'orders.status'],
             ['orderProducts', 'user']
         );

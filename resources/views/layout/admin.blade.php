@@ -27,13 +27,13 @@
             <hr class="sidebar-divider my-0">
             <hr class="sidebar-divider">
 
-            @can('forManagerAndAdmin', App\Models\User::class)
+            @can(Auth::user()->givePermission)
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>User management</span>
                     </a>
-                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="{{route('admin.clients.index')}}">Clients</a>
                             @can('forAdmin',\App\Models\User::class)
@@ -45,9 +45,8 @@
             @endcan
             @can('viewAny', App\Models\User::class)
 
-            <li class="nav-item active">
-                <a class="nav-link collapsed"
-                   href="#"
+            <li class="nav-item">
+                <a class="nav-link" href="#"
                    data-toggle="collapse"
                    data-target="#collapseUtilities"
                    aria-expanded="true"

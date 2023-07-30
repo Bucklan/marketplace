@@ -21,6 +21,27 @@ class OrderController extends Controller
         return view($this->url . 'index', ['orders' => $orders->resolve()]);
     }
 
+    public function ordersByCreated()
+    {
+        $response = app(Contacts\GetAllOrdersByCreated::class)->execute();
+        $orders = AllResource::collection($response);
+        return view($this->url . 'created', ['orders' => $orders > resolve()]);
+    }
+
+    public function ordersByConfirmed()
+    {
+        $response = app(Contacts\GetAllOrdersByConfirmed::class)->execute();
+        $orders = AllResource::collection($response);
+        return view($this->url . 'confirmed', ['orders' => $orders > resolve()]);
+    }
+
+    public function ordersByCanceled()
+    {
+        $response = app(Contacts\GetAllOrdersBCanceled::class)->execute();
+        $orders = AllResource::collection($response);
+        return view($this->url . 'canceled', ['orders' => $orders > resolve()]);
+    }
+
     public function confirmed(Order $order)
     {
         app(Contacts\ConfirmOrder::class)->execute($order);
@@ -35,4 +56,6 @@ class OrderController extends Controller
 
         return redirect()->route($this->route . 'index')->withErrors('This is Order successfully canceled');
     }
+
+
 }

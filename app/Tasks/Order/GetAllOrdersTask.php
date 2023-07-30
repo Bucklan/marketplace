@@ -10,10 +10,11 @@ class GetAllOrdersTask
     {
     }
 
-    public function run($columns = ['*'],
-                        array $relations = [],
-                        array $relation_count = [])
+    public function run(string $status,
+                        array $columns = ['*'],
+                        array  $relations = [],
+                        array  $relation_count = [])
     {
-        return $this->repository->getAll($columns, $relations, $relation_count);
+        return $this->repository->getAllByStatus($status,$columns, $relations, $relation_count);
     }
 }
