@@ -9,6 +9,7 @@
                     <!-- Image -->
                     <div class="bg-image hover-overlay hover-zoom ripple rounded"
                          data-mdb-ripple-color="light">
+
                         @if($media = $product->getFirstMedia('products'))
                             <img src="{{$media->getUrl()}}" class="w-100" alt="..."/>
                         @endif

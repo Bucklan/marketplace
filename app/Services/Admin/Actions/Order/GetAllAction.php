@@ -2,6 +2,7 @@
 
 namespace App\Services\Admin\Actions\Order;
 
+use App\Enums\Order\Status;
 use App\Services\Admin\Contracts\GetAllOrders;
 use App\Tasks as Tasks;
 use Exception;
@@ -12,6 +13,7 @@ class GetAllAction implements GetAllOrders
     public function execute()
     {
         $orders = app(Tasks\Order\GetAllOrdersTask::class)->run(
+            Status::CREATED,
             ['orders.id', 'orders.user_id', 'orders.amount', 'orders.status'],
             ['orderProducts', 'user']
         );
