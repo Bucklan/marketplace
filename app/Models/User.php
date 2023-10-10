@@ -97,10 +97,7 @@ class User extends Authenticatable implements Authorizable
         return $this->login_blocked_at != null;
     }
 
-    public function getAvatar(): string
-    {
-        return $this->getFile() ?? asset('default_avatar.svg');
-    }
+
 
     public function isDeleted(): bool
     {

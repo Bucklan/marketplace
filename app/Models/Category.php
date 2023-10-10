@@ -43,17 +43,13 @@ class Category extends BaseModel implements HasMedia
     use InteractsWithMedia,
         HasMutators;
 
-    protected $fillable = ['name'];
+    protected $guarded = ['id'];
 
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
     }
 
-    public function getImage(): string
-    {
-        return $this->file->getFile() ?? asset('default_image.png');
-    }
 
     public function registerMediaConversions(Media $media = null): void
     {

@@ -92,10 +92,6 @@ class Product extends Model implements \Spatie\MediaLibrary\HasMedia
         return $this->belongsTo(Category::class);
     }
 
-    public function getImage(): string
-    {
-        return $this->file->getFile() ?? asset('default_image.png');
-    }
 
     public function carts(): HasMany
     {
