@@ -1,5 +1,8 @@
+<h4>STEP 1</h4>
 composer update
+<h4>STEP 2</h4>
 php artisan migrate:fresh --seed
-user: admin@gmail.com
-password: admin123
-postman api: marketplace.postman_collection.json
+<h4>STEP 3</h4>
+user: admin@gmail.com <br>
+password: admin123 <br>
+postman api file: marketplace.postman_collection.json
